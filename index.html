@@ -21,53 +21,59 @@
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">Pokedex</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
-              </li>
-            </ul>
-          </div>
-        </div>
+          <form class="form-inline" @submit.prevent="filterPokemon(inputValue)">
+            <input v-model="inputValue" class="mr-sm-2  m-2" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-light my-2 my-sm-0" @click="filterPokemon(inputValue)">Search</button>
+          </form>
       </nav>
-
+      
+      
+      
       <div id="party">
-        <h2>Party</h2>
+        <h2 class="px-2">Party</h2>
+        <div class="info">
+          <p class="px-2 lead">{{partyPokemon.length}} of 6 pokemon</p>
+        </div>
         <div id="party-pokemon">
           <div
-            class="pokemon"
-            v-for="pokemon in partyPokemon"
+          class="pokemon"
+          v-for="pokemon in partyPokemon"
             @click="removePokemonFromParty(pokemon)"
-          >
+            >
             <!-- <a href="#" id="${pokemon.id}"> Favorite </a></div> -->
             <div class="img-container">
               <!-- <p>{{ pokemon.sprites}}</p> -->
-              <!--<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png"" alt="${name}">-->
-              <!-- <img :src="pokemon.sprites.other['official-artwork'].front_default" /> -->
+              <img
+              :src="pokemon.sprites.other['official-artwork'].front_default"
+            />              <!-- <img :src="pokemon.sprites.other['official-artwork'].front_default" /> -->
+          </div>
+          <div class="info">
+              <span class="number">#{{pokemon.id}}</span>
+              <h3 class="name">{{pokemon.name}}</h3>
+              <small class="type"
+                >Type:
+                <span v-for="type in pokemon.types">
+                  {{ type.type.name }} /
+                </span>
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="filteredPokemon">
+        <h2>Filtered Pokemon</h2>
+        <div id="filteredPokemon">
+          <div
+          class="pokemon"
+          v-for="pokemon in filteredPokemon"
+          @click="addPokemonToParty(pokemon)"
+          >
+            <div class="img-container">
+              <img
+              :src="pokemon.sprites.other['official-artwork'].front_default"/>
             </div>
             <div class="info">
               <span class="number">#{{pokemon.id}}</span>
-              <span class="number">#{{pokemon.guid}}</span>
               <h3 class="name">{{pokemon.name}}</h3>
               <small class="type"
                 >Type:
@@ -80,14 +86,15 @@
         </div>
       </div>
 
-      <div class=>
+      <div>
         <div id="all">
-          <h2>All Pokemon</h2>
+          <h2 class="px-2">All Pokemon</h2>
           <div id="all-pokemon">
             <div
               class="pokemon"
               v-for="pokemon in allPokemon"
               @click="addPokemonToParty(pokemon)"
+              style= "background: linear-gradient(to right, rgba(0, 224, 255, 1), rgba(0, 133, 255, 1))"
             >
               <!-- <a href="#" id="${pokemon.id}"> Favorite </a></div> -->
               <div class="img-container">
