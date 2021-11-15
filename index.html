@@ -50,19 +50,17 @@
           <div class="info">
               <span class="number">#{{pokemon.id}}</span>
               <h3 class="name">{{pokemon.name}}</h3>
-              <small class="type"
-                >Type:
-                <span v-for="type in pokemon.types">
-                  {{ type.type.name }} /
-                </span>
+              <small class="type">
+                Type:
+                {{pokemonTypeString(pokemon)}}
               </small>
             </div>
           </div>
         </div>
       </div>
-      <div id="filteredPokemon">
+      <div id="filter">
         <h2>Filtered Pokemon</h2>
-        <div id="filteredPokemon">
+        <div id="filtered-pokemon">
           <div
           class="pokemon"
           v-for="pokemon in filteredPokemon"
@@ -75,11 +73,9 @@
             <div class="info">
               <span class="number">#{{pokemon.id}}</span>
               <h3 class="name">{{pokemon.name}}</h3>
-              <small class="type"
-                >Type:
-                <span v-for="type in pokemon.types">
-                  {{ type.type.name }} /
-                </span>
+              <small class="type">
+                Type:
+                {{pokemonTypeString(pokemon)}}
               </small>
             </div>
           </div>
@@ -94,7 +90,7 @@
               class="pokemon"
               v-for="pokemon in allPokemon"
               @click="addPokemonToParty(pokemon)"
-              style= "background: linear-gradient(to right, rgba(0, 224, 255, 1), rgba(0, 133, 255, 1))"
+              style= "background-image: linear-gradient(to right, rgba(0,0,0,0) 0%,#abc 1%,#bac 100%)"
             >
               <!-- <a href="#" id="${pokemon.id}"> Favorite </a></div> -->
               <div class="img-container">
@@ -107,11 +103,9 @@
               <div class="info">
                 <span class="number">#{{pokemon.id}}</span>
                 <h3 class="name">{{pokemon.name}}</h3>
-                <small class="type"
-                  >Type:
-                  <span v-for="type in pokemon.types">
-                    {{ type.type.name }} /
-                  </span>
+                <small class="type">
+                  Type:
+                  {{pokemonTypeString(pokemon)}}
                 </small>
               </div>
             </div>
@@ -119,7 +113,7 @@
         </div>
       </div>
       
-      <footer>
+      <footer class="fixed-bottom">
         <p>&copy; 2021</p>
       </footer>
     </div>

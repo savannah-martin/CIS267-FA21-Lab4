@@ -8,14 +8,20 @@ body {
   background-color: #fff;
   /* position: sticky; */
   /* left: 0; */
-  /* top: 70px; */
+  margin-top: 70px;
   min-height: 30vh;
-  max-height: 40vh;
+  /* max-height: 40vh; */
   width: 100%;
-  height: auto;
+  height: auto; 
 }
 
 #party-pokemon {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#filtered-pokemon {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
