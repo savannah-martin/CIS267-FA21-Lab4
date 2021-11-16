@@ -22,8 +22,8 @@
         <div class="container-fluid">
           <a class="navbar-brand" href="#">Pokedex</a>
           <form class="form-inline" @submit.prevent="filterPokemon(inputValue)">
-            <input v-model="inputValue" class="mr-sm-2  m-2" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-light my-2 my-sm-0" @click="filterPokemon(inputValue)">Search</button>
+            <input v-model="inputValue" class="mr-sm-2 p-1 m-2" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-light my-2 my-sm-0 mx-2" @click="filterPokemon(inputValue)">Search</button>
             <button type="button" class="btn btn-outline-light my-2 my-sm-0" @click="clearPokemon">Clear</button>
           </form>
       </nav>
@@ -89,8 +89,10 @@
               class="pokemon"
               v-for="pokemon in allPokemon"
               @click="addPokemonToParty(pokemon)"
-              style= "background-image: linear-gradient(to right, #bac 0%,#abc 1%,#bac 100%)"
-            >
+              >
+              <!--
+              </div>:style= "background-image: linear-gradient(90deg, {{colors[pokemon.types[0].type.name]}} 50%, #00FFFF {{colors[pokemon.types.length > 1 ? pokemon.types[1].type.name : null]}})"
+              -->   
               <div class="img-container">
                 <img
                   :src="pokemon.sprites.other['official-artwork'].front_default"
