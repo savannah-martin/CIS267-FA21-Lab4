@@ -43,6 +43,9 @@ const app = Vue.createApp({
     };
   },
   methods: {
+    clearPokemon() {
+      this.filteredPokemon= []
+    },
     async loadPokemon() {
       // load all pokemon from API and save into all pokemon
       const pokemon_count = 150;
