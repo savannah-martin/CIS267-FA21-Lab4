@@ -12,7 +12,7 @@ body {
   min-height: 30vh;
   /* max-height: 40vh; */
   width: 100%;
-  height: auto; 
+  height: auto;
 }
 
 #party-pokemon {
@@ -110,4 +110,3 @@ footer {
 footer p {
   margin: auto;
 }
-

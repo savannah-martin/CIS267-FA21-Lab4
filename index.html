@@ -41,12 +41,10 @@
           v-for="pokemon in partyPokemon"
             @click="removePokemonFromParty(pokemon)"
             >
-            <!-- <a href="#" id="${pokemon.id}"> Favorite </a></div> -->
             <div class="img-container">
-              <!-- <p>{{ pokemon.sprites}}</p> -->
               <img
               :src="pokemon.sprites.other['official-artwork'].front_default"
-            />              <!-- <img :src="pokemon.sprites.other['official-artwork'].front_default" /> -->
+            />              
           </div>
           <div class="info">
               <span class="number">#{{pokemon.id}}</span>
@@ -59,7 +57,7 @@
           </div>
         </div>
       </div>
-      <div id="filter">
+      <div v-if="filteredPokemon.length > 0" id="filter">
         <h2>Filtered Pokemon</h2>
         <div id="filtered-pokemon">
           <div
@@ -91,12 +89,9 @@
               class="pokemon"
               v-for="pokemon in allPokemon"
               @click="addPokemonToParty(pokemon)"
-              style= "background-image: linear-gradient(to right, rgba(0,0,0,0) 0%,#abc 1%,#bac 100%)"
+              style= "background-image: linear-gradient(to right, #bac 0%,#abc 1%,#bac 100%)"
             >
-              <!-- <a href="#" id="${pokemon.id}"> Favorite </a></div> -->
               <div class="img-container">
-                <!-- <p>{{ pokemon.sprites}}</p> -->
-                <!--<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png"" alt="${name}">-->
                 <img
                   :src="pokemon.sprites.other['official-artwork'].front_default"
                 />
