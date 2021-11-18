@@ -42,7 +42,6 @@
             @click="removePokemonFromParty(pokemon)"
             style="background:linear-gradient(135deg, #E3E3E3 0%,#5D6874 100%);">
 
-            >
             <div class="img-container">
               <img
               :src="pokemon.sprites.other['official-artwork'].front_default"
@@ -66,7 +65,7 @@
           class="pokemon"
           v-for="pokemon in filteredPokemon"
           @click="addPokemonToParty(pokemon)"
-          style="background:linear-gradient(135deg, #E3E3E3 0%,#5D6874 100%);">
+          style="background:linear-gradient(135deg, #E3E3E3 0%,#5D6874 100%);"
 
           >
             <div class="img-container">
