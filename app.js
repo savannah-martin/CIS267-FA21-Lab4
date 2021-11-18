@@ -17,7 +17,6 @@ const app = Vue.createApp({
       filteredPokemon: [],
       maxPartySize: 6,
       inputValue: "",
-      colortest: "green",
       colors: {
         fire: "#fd7d24",
         grass: "#9bcc50",
@@ -37,7 +36,7 @@ const app = Vue.createApp({
         ghost: "#7b62a3",
         dark: "#707070",
         steel: "#9eb7b8",
-      },
+      }
     };
   },
   methods: {
@@ -70,8 +69,7 @@ const app = Vue.createApp({
           const pokemonCopy = { ...pokemon };
           pokemonCopy.guid = this.getGUID();
           this.filteredPokemon.push(pokemonCopy);
-        }
-        else if (pokemon.types.length > 1) {
+        } else if (pokemon.types.length > 1) {
           if (
             pokemon.types[1].type.name
               .toLowerCase()
@@ -81,8 +79,7 @@ const app = Vue.createApp({
             pokemonCopy.guid = this.getGUID();
             this.filteredPokemon.push(pokemonCopy);
           }
-        }
-        else if (
+        } else if (
           pokemon.types[0].type.name
             .toLowerCase()
             .includes(inputValue.toLowerCase())
@@ -90,8 +87,7 @@ const app = Vue.createApp({
           const pokemonCopy = { ...pokemon };
           pokemonCopy.guid = this.getGUID();
           this.filteredPokemon.push(pokemonCopy);
-        }
-        else if (pokemon.id.toString().includes(inputValue.toLowerCase())) {
+        } else if (pokemon.id.toString().includes(inputValue.toLowerCase())) {
           const pokemonCopy = { ...pokemon };
           pokemonCopy.guid = this.getGUID();
           this.filteredPokemon.push(pokemonCopy);
